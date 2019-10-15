@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SingularityComponent } from './singularity/singularity.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SingularityComponent
   ],
   imports: [
     BrowserModule,
