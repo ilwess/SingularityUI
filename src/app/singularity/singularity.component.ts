@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { 
+  MatToolbar,
+  MatButton,
+  MatSidenav,
+  MatGridList,
+  MatList} 
+  from '@angular/material';
 
 @Component({
   selector: 'app-singularity',
