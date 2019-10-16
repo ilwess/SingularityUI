@@ -6,16 +6,21 @@ import {
   MatButtonModule,
   MatSidenavModule,
   MatGridListModule,
-  MatListModule } from '@angular/material';
+  MatListModule,
+  MatCardModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SingularityComponent } from './singularity/singularity.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+import { UserService } from './user.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingularityComponent
+    SingularityComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +31,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatSidenavModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

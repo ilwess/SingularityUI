@@ -1,0 +1,41 @@
+<mat-grid-list cols="4" rowHeight="49%">
+    <mat-grid-tile>
+        <mat-card class="profile-image">
+            <img mat-card-image src="../../assets/авадота.png">
+            <mat-card-actions>
+                <button mat-button>
+                    <mat-icon>insert_photo</mat-icon>
+                    Update
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+        <mat-card class="profile-info">
+            <mat-card-title style="font-size: 30px;">
+                {{ this.auth.user.login }}
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{ this.auth.user.name }}
+            </mat-card-subtitle>
+            <mat-card-content>
+                Phone: {{ this.auth.user.phone }}
+            </mat-card-content>
+            <mat-card-content>
+                Email: <a>{{ this.auth.user.email }}</a>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>
+                    <mat-icon>
+                        people
+                    </mat-icon>
+                    {{ this.auth.user.contacts.length}}
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        4
+    </mat-grid-tile>
+</mat-grid-list>
+    

@@ -1,12 +1,21 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="!this.auth.isAuth">
         <mat-icon>polymer</mat-icon>
         ingularity
 </mat-toolbar>
-<mat-sidenav-container style="width: 100%; height: 100%;">
+<mat-toolbar *ngIf="this.auth.isAuth">
+    <mat-icon>polymer</mat-icon>
+    <div class="user_photo">
+        <button mat-button>
+            <img src="../../assets/авадота.png" height="100%" width="13%">
+            {{ this.auth.user.login }}
+        </button>
+    </div>
+</mat-toolbar>
+<mat-sidenav-container style="width: 100%; height: 93.2%;">
     <mat-sidenav opened mode="side" style="width: 25%;">
-        <mat-list role="list">
-            <mat-list-item role="listitem" >
-                <button mat-button>
+        <mat-list role="list" *ngIf="this.auth.isAuth">
+            <mat-list-item role="listitem">
+                <button mat-button routerLink="/profile">
                     <mat-icon>
                         home
                     </mat-icon>

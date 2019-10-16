@@ -6,6 +6,7 @@ import {
   MatGridList,
   MatList} 
   from '@angular/material';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-singularity',
@@ -14,7 +15,7 @@ import {
 })
 export class SingularityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth : AuthService) { }
 
   ngOnInit() {
   }
