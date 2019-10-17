@@ -4,18 +4,16 @@
 </mat-toolbar>
 <mat-toolbar *ngIf="this.auth.isAuth">
     <mat-icon>polymer</mat-icon>
-    <div class="user_photo">
-        <button mat-button>
-            <img src="../../assets/авадота.png" height="100%" width="13%">
-            {{ this.auth.user.login }}
-        </button>
-    </div>
+    <button mat-button style="height: 100%; width: 10%;">
+        <img [src]="this.auth.user.ava.link" height="100%" width="60px">
+        {{ this.auth.user.login }}
+    </button>
 </mat-toolbar>
 <mat-sidenav-container style="width: 100%; height: 93.2%;">
     <mat-sidenav opened mode="side" style="width: 25%;">
         <mat-list role="list" *ngIf="this.auth.isAuth">
             <mat-list-item role="listitem">
-                <button mat-button routerLink="/profile">
+                <button mat-button>
                     <mat-icon>
                         home
                     </mat-icon>

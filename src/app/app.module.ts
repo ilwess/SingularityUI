@@ -22,7 +22,7 @@ import { AuthService } from './auth.service';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({

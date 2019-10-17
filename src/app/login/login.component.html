@@ -1,1 +1,23 @@
-<p>login works!</p>
+<mat-grid-list cols="1" rowHeight="50%">
+    <mat-grid-tile>
+        <mat-list role="list">
+            <form [formGroup]="loginForm">
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <input matInput placeholder="phone or email" required formControlName="login">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <input matInput type="password" placeholder="password" required formControlName="password">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <button mat-button (click)="login()">
+                        Login
+                    </button>
+                </mat-list-item>
+            </form>
+        </mat-list>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,7 +1,7 @@
 <mat-grid-list cols="4" rowHeight="49%">
     <mat-grid-tile>
         <mat-card class="profile-image">
-            <img mat-card-image src="../../assets/авадота.png">
+            <img mat-card-image [src]="this.auth.user.ava.link">
             <mat-card-actions>
                 <button mat-button>
                     <mat-icon>insert_photo</mat-icon>
@@ -13,23 +13,23 @@
     <mat-grid-tile colspan="3">
         <mat-card class="profile-info">
             <mat-card-title style="font-size: 30px;">
-                {{ this.auth.user.login }}
+                {{ this.user.login }}
             </mat-card-title>
             <mat-card-subtitle>
-                {{ this.auth.user.name }}
+                {{ this.user.name }}
             </mat-card-subtitle>
             <mat-card-content>
-                Phone: {{ this.auth.user.phone }}
+                Phone: {{ this.user.phone }}
             </mat-card-content>
             <mat-card-content>
-                Email: <a>{{ this.auth.user.email }}</a>
+                Email: <a>{{ this.user.email }}</a>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-button>
                     <mat-icon>
                         people
                     </mat-icon>
-                    {{ this.auth.user.contacts.length}}
+                    {{ this.user.contacts.length}}
                 </button>
             </mat-card-actions>
         </mat-card>
