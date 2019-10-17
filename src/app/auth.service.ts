@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './models/user';
 import { UserService } from './user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,23 @@ import { UserService } from './user.service';
 export class AuthService {
   private user : User;
   private isAuth : boolean;
-  constructor(private userService : UserService) {
-      this.user = this.userService.getUserById(0);
-      this.isAuth = true;
-    }
+  private authUrl : string
+    = "https://localhost:44336/api/auth/token"
+  constructor(
+    private userService : UserService,
+    private http : HttpClient) {
+      this.isAuth = false;
+  }
+
+  getUser(
+    userLogin : string,
+    password : string) : void {
+      this.http.post<User>(
+        this.authUrl,
+        {
+          userName: userLogin,
+          password: password
+        }
+      ).subscribe(p => this.user = p);
+  }
 }

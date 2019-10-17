@@ -21,13 +21,17 @@ import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingularityComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +49,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatInputModule,
     MatOptionModule, 
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
+    RouterModule
   ],
-  providers: [UserService, AuthService],
+  providers: [
+    UserService,
+    AuthService,
+    HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

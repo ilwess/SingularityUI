@@ -1,15 +1,41 @@
-<!-- <mat-grid-list cols="1" rowHeight="3:1">
-    <mat-grid-tile> -->
-        <form>
-            <mat-form-field>
-                <input matInput placeholder="login">
-            </mat-form-field>
-            <mat-form-field>
-                    <input matInput type="email" placeholder="email">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput type="password" placeholder="password">
-            </mat-form-field>
+<mat-grid-list cols="1" rowHeight="3:1">
+    <mat-grid-tile>
+        <form [formGroup]="registerForm">
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <input matInput formControlName="email" type="email" required placeholder="email">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <input matInput formControlName="login" required placeholder="login">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                        <mat-form-field>
+                            <input matInput formControlName="name" required placeholder="name">
+                        </mat-form-field>
+                    </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <input matInput formControlName="phone" required placeholder="phone">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <input matInput formControlName="password" required type="password" placeholder="password">
+                    </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <button mat-button (click)="register()">
+                        Register
+                        <mat-icon>
+                            tag_faces
+                        </mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-list>
         </form>
-    <!-- </mat-grid-tile>
-</mat-grid-list> -->
+    </mat-grid-tile>
+</mat-grid-list>

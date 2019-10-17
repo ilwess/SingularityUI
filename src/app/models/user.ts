@@ -8,6 +8,7 @@ export class User{
     public token : string,
     public blackList : { blockedId : number }[],
     public contacts : { contactId : number }[],
-    public ava : {id : number, link : string}
+    public ava : {id : number, link : string},
+    public password : string,
     ){}
 }
