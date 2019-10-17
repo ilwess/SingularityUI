@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './login/login.component';
     SingularityComponent,
     ProfileComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
