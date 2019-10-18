@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   public user : User;
-  private isAuth : boolean;
+  public isAuth : boolean;
   private authUrl : string
     = "https://localhost:44336/api/auth/token"
   constructor(

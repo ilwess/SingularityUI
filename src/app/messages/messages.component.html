@@ -1,1 +1,19 @@
-<p>messages works!</p>
+<mat-grid-list cols="1">
+    <mat-grid-tile>
+        <mat-list role="list" *ngIf="this.messagesOfUsers != null">
+            <mat-list-item role="listitem" *ngFor="let m of this.messagesofUsers">
+                <mat-card>
+                    <mat-card-title>
+                        {{ m.reciever.login }}
+                    </mat-card-title>
+                    <mat-card-content>
+                        {{ m.text }}
+                    </mat-card-content>
+                </mat-card>
+            </mat-list-item>
+        </mat-list>
+        <div class="no_msgs_text" *ngIf="this.messagesOfUsers == null">
+            You have no messages!
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

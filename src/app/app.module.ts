@@ -25,6 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { MessagesComponent } from './messages/messages.component';
   providers: [
     UserService,
     AuthService,
-    HttpClient],
+    HttpClient,
+    MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

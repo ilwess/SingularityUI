@@ -13,7 +13,7 @@
     <mat-sidenav opened mode="side" style="width: 25%;">
         <mat-list role="list" *ngIf="this.auth.isAuth">
             <mat-list-item role="listitem">
-                <button mat-button>
+                <button mat-button routerLink="/profile/{{this.auth.user.id}}">
                     <mat-icon>
                         home
                     </mat-icon>
@@ -21,7 +21,7 @@
                 </button>
             </mat-list-item>
             <mat-list-item role="listitem">
-                <button mat-button>
+                <button mat-button routerLink="/messages">
                     <mat-icon>
                         message
                     </mat-icon>
