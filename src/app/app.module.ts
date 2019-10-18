@@ -26,6 +26,7 @@ import { RouterModule, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
+import { PrivateMessagesComponent } from './private-messages/private-messages.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MessageService } from './message.service';
     ProfileComponent,
     RegisterComponent,
     LoginComponent,
-    MessagesComponent
+    MessagesComponent,
+    PrivateMessagesComponent
   ],
   imports: [
     BrowserModule,
