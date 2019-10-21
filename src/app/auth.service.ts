@@ -3,6 +3,7 @@ import { User } from './models/user';
 import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SignalrService } from './signalr.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class AuthService {
 
   loginUser(
     userLogin : string,
-    password : string) : void {
+    password : string,
+    signalr : SignalrService) : void {
       this.http.post<User>(
         this.authUrl,
         {
@@ -32,6 +34,8 @@ export class AuthService {
           this.user = p;
           this.isAuth = true;
           this.router.navigate(['/profile/', this.user.id]);
+          signalr.connect();
+          signalr.addTransferMessageListener();
         });
   }
 }

@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { PrivateMessagesComponent } from './private-messages/private-messages.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PrivateMessagesComponent } from './private-messages/private-messages.co
     RegisterComponent,
     LoginComponent,
     MessagesComponent,
-    PrivateMessagesComponent
+    PrivateMessagesComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
-<mat-grid-list cols="4" rowHeight="49%">
+<mat-grid-list cols="4" rowHeight="49%" *ngIf="this.isLoaded">
     <mat-grid-tile>
         <mat-card class="profile-image">
-            <img mat-card-image [src]="this.auth.user.ava.link">
+            <img mat-card-image [src]="this.user.ava.link">
             <mat-card-actions>
                 <button mat-button>
                     <mat-icon>insert_photo</mat-icon>
@@ -13,23 +13,51 @@
     <mat-grid-tile colspan="3">
         <mat-card class="profile-info">
             <mat-card-title style="font-size: 30px;">
-                {{ this.user.login }}
+                <div *ngIf="this.user.id != this.auth.user.id">
+                    {{ this.user.login }}
+                </div>
+                <mat-form-field *ngIf="this.user.id == this.auth.user.id">
+                    <input matInput formControlName="login" value="this.user.login">
+                </mat-form-field>
+                <button mat-button (click)="changeLogin()">
+                    Change
+                </button>
             </mat-card-title>
             <mat-card-subtitle>
-                {{ this.user.name }}
+                <div *ngIf="this.user.id != this.auth.user.id">
+                    {{ this.user.name }}
+                </div>
+                <mat-form-field *ngIf="this.user.id == this.auth.user.id">
+                    <input matInput formControlName="name" value="this.user.name">
+                </mat-form-field>
+                <button mat-button (click)="changeName()">
+                    Change
+                </button>
             </mat-card-subtitle>
             <mat-card-content>
                 Phone: {{ this.user.phone }}
             </mat-card-content>
             <mat-card-content>
-                Email: <a>{{ this.user.email }}</a>
+                Email: {{ this.user.email }}
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button>
+                <button mat-button *ngIf="this.user.id == this.auth.user.id">
                     <mat-icon>
                         people
                     </mat-icon>
                     {{ this.user.contacts.length}}
+                </button>
+                <button mat-button *ngIf="this.user.id != this.auth.user.id" (click)="addToContact()">
+                    Add to contact
+                </button>
+                <button mat-button *ngIf="this.user.id != this.auth.user.id" (click)="blockUser()">
+                    Block
+                </button>
+                <button mat-button routerLink="/messages/{{this.user.id}}" *ngIf="this.user.id != this.auth.user.id">
+                    <mat-icon>
+                        textsms
+                    </mat-icon>
+                    Send message
                 </button>
             </mat-card-actions>
         </mat-card>

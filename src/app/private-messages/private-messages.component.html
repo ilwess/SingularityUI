@@ -1,1 +1,60 @@
-<p>private-messages works!</p>
+<mat-grid-list cols="1" rowHeight="3.88%" *ngIf="this.messageService.isLoad">
+    <mat-grid-tile rowspan="2">
+        <div class="user_login">
+            {{ this.user.login }}
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="21">
+        <mat-list role="list" *ngIf="this.messageService.dialog != null">
+            <mat-list-item role="listitem" *ngFor="let m of this.messageService.dialog">
+                <div class="user_info">
+                    <img [src]="this.m.sender.ava.link" height="20px" width="20px">
+                    <div class="message_login">
+                        {{ m.sender.login }}
+                    </div>
+                </div>
+                <div class="message_text">
+                    {{ m.text }}
+                </div>
+                <div class="message_audios" *ngIf="m.audios != null">
+                    <button mat-button>
+                        <mat-icon>music_note</mat-icon>
+                        {{ m.audios.length }}
+                    </button>
+                </div>
+                <div class="message_videos" *ngIf="m.videos != null">
+                    <button mat-button>
+                        <mat-icon>video_call</mat-icon>
+                        {{ m.videos.length }}
+                    </button>
+                </div>
+                <div class="message_photos" *ngIf="m.images != null">
+                    <button mat-button>
+                        <mat-icon>image</mat-icon>
+                        {{ m.images.length }}
+                    </button>
+                </div>
+            </mat-list-item>
+        </mat-list>
+        <div *ngIf="this.messageService.messages==null">
+            You have no messages with this user!
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="2">
+        <button mat-button>
+            <mat-icon>
+                attachment
+            </mat-icon>
+        </button>
+        <form [formGroup]="messageForm">
+            <mat-form-field style="width: 40%;">
+                <input matInput type="text" id="msg_text" formControlName="text">
+            </mat-form-field>
+            <button mat-button (click)="send()">
+                <mat-icon>
+                    send
+                </mat-icon>
+            </button>
+        </form>
+    </mat-grid-tile>
+</mat-grid-list>

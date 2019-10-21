@@ -1,0 +1,26 @@
+<mat-grid-list cols="1" rowHeight="3.88%">
+    <mat-grid-tile rowspan="2">
+        <mat-form-field>
+            <input matInput type="text">
+        </mat-form-field>
+        <button mat-button (click)="search()">
+            <mat-icon>
+                search
+            </mat-icon>
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="21">
+        <mat-list role="list" *ngIf="this.isLoaded && this.users.length > 0">
+            <mat-list-item role="listitem" *ngFor="let u for this.users" routerLink="/profile/{{u.id}}">
+                email: {{ u.email }} phone: {{ u.phone }}
+                <div *ngIf="isUserOnline(u.id)">
+                    Online
+                </div>
+                <div *ngIf="!isUserOnline(u.id)">
+                    Offline
+                    date: {{ u.date}}
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-grid-tile>
+</mat-grid-list>
