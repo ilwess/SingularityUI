@@ -55,18 +55,22 @@ export class PrivateMessagesComponent implements OnInit {
     msg.videos = null;
     msg.audios = null;
     this.signalr.sendMessage(msg);
+    this.updateMessages();
   }
 
   public updateMessages(){
-    let userO = this.userService.getUserById(Number
-      .parseInt(
-        this.route.snapshot
-        .paramMap.get('id')));
-    userO.subscribe(u => {
-      this.user=u;
-      let o = this.messageService
-        .getDialog(this.auth.user.id, u.id);
-    });
+    // let userO = this.userService.getUserById(Number
+    //   .parseInt(
+    //     this.route.snapshot
+    //     .paramMap.get('id')));
+    // userO.subscribe(u => {
+    //   this.user=u;
+    //   let o = this.messageService
+    //     .getDialog(this.auth.user.id, u.id);
+    //   this.router.navigate([this.route.url]);
+    // });
+    this.router.navigate(["/profile/" + this.auth.user.id]);
+    this.router.navigate(["/messages/" + this.auth.user.id]);
   }
 
   ngOnInit() {

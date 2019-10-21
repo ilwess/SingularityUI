@@ -1,24 +1,28 @@
-<mat-grid-list cols="1" rowHeight="3.88%">
-    <mat-grid-tile rowspan="2">
-        <mat-form-field>
-            <input matInput type="text">
-        </mat-form-field>
-        <button mat-button (click)="search()">
-            <mat-icon>
-                search
-            </mat-icon>
-        </button>
+<mat-grid-list cols="1" rowHeight="3.88%" style="margin-top: 10px;">
+    <mat-grid-tile rowspan="4">
+        <form [formGroup]="formSearch">
+            <mat-form-field>
+                <input matInput type="text" formControlName="search">
+            </mat-form-field>
+            <button mat-button (click)="search()">
+                <mat-icon>
+                    search
+                </mat-icon>
+            </button>
+        </form>
     </mat-grid-tile>
-    <mat-grid-tile rowspan="21">
-        <mat-list role="list" *ngIf="this.isLoaded && this.users.length > 0">
-            <mat-list-item role="listitem" *ngFor="let u for this.users" routerLink="/profile/{{u.id}}">
-                email: {{ u.email }} phone: {{ u.phone }}
-                <div *ngIf="isUserOnline(u.id)">
+    <mat-grid-tile rowspan="21" *ngIf="this.isLoad">
+        <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let u of this.users" class="contacts_user" routerLink="/profile/{{u.id}}">
+                <div class="contacts_user_info">
+                    email: {{ u.email }}<br>
+                    phone: {{ u.phone }}
+                </div>
+                <div *ngIf="isUserOnline(u.id)" class="contacts_user_online">
                     Online
                 </div>
-                <div *ngIf="!isUserOnline(u.id)">
-                    Offline
-                    date: {{ u.date}}
+                <div *ngIf="!isUserOnline(u.id)" class="contacts_user_offline">
+                    Offline {{ u.date}}
                 </div>
             </mat-list-item>
         </mat-list>

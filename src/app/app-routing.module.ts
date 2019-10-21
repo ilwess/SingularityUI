@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PrivateMessagesComponent } from './private-messages/private-messages.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'messages', component: MessagesComponent},
-  {path: 'messages/:id', component: PrivateMessagesComponent}
+  {path: 'messages/:id', component: PrivateMessagesComponent},
+  {path: 'contacts', component: ContactsComponent}
 ];
 
 @NgModule({

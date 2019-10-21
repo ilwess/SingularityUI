@@ -39,8 +39,8 @@ export class RegisterComponent implements OnInit {
         login: this.registerForm.get("login").value,
         phone: this.registerForm.get("phone").value,
         password: this.registerForm.get("password").value})
-        .subscribe(
-          {complete() {this.router.navigate(['/login'])}}
+        .subscribe(u => 
+          this.router.navigate(['/login'])
         );
   }
 

@@ -32,14 +32,14 @@ export class SignalrService {
   }
 
   public addTransferMessageListener() {
-    this.hubConn.on('Recieve', (msg) => {
-      if(this.route.snapshot.routeConfig.component.name == "PrivateMessagesComponent"){
+    console.log(0);
+    this.hubConn.on('Send', (msg) => {
+      console.log(1);
         var id = this.route.snapshot
         .paramMap.get('id');
-        if((msg.reciever.id == id) || (msg.sender.id == id)){
-          this.messageService.getDialog(this.auth.user.id,Number.parseInt(id));
-        }
-      }
+        this.messageService.dialog.push(msg);
+        console.log(msg.text);
+          //this.messageService.getDialog(this.auth.user.id,Number.parseInt(id));
     })
   }
 

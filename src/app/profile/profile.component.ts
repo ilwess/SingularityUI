@@ -4,7 +4,7 @@ import { MatCard } from '@angular/material';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { User } from '../models/user';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -16,8 +16,12 @@ export class ProfileComponent implements OnInit {
   private thisUser : boolean;
   private user : User = null;
   private prevUrl : string;
-  private login : FormControl;
-  private name : FormControl;
+  private form_login : FormGroup = new FormGroup({
+    login : new FormControl("")
+  });
+  private form_name : FormGroup = new FormGroup({
+    name : new FormControl("")
+  });
   constructor(private userService : UserService,
     private auth : AuthService,
     private route : ActivatedRoute) {
@@ -37,19 +41,18 @@ export class ProfileComponent implements OnInit {
             if(this.user.ava == null){
               this.user.ava = { id: 1, link: "https://localhost:44336/images/default-image.jpg"};
             }
+            console.log(this.user.login);
             this.isLoaded = true;
           });
         }
     }
   
-  changeLogin(){
-    this.login = new FormControl("");
-    this.userService.changeLogin(this.login.value);
+  changeLogin() : void{
+    this.userService.changeLogin(this.form_login.get("login").value);
   }
 
   changeName(){
-    this.name = new FormControl("");
-    this.userService.changeName(this.name.value);
+    this.userService.changeName(this.form_name.get("name").value);
   }
 
   addToContact(){

@@ -12,27 +12,31 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="3">
         <mat-card class="profile-info">
-            <mat-card-title style="font-size: 30px;">
+            <mat-card-title style="font-size: 15px;">
                 <div *ngIf="this.user.id != this.auth.user.id">
                     {{ this.user.login }}
                 </div>
-                <mat-form-field *ngIf="this.user.id == this.auth.user.id">
-                    <input matInput formControlName="login" value="this.user.login">
-                </mat-form-field>
-                <button mat-button (click)="changeLogin()">
-                    Change
-                </button>
+                <form [formGroup]="form_login" *ngIf="this.user.id == this.auth.user.id">
+                    <mat-form-field >
+                        <input matInput formControlName="login" value="{{this.user.login}}">
+                    </mat-form-field>
+                    <button mat-button (click)="changeLogin()">
+                        Change
+                    </button>
+                </form>
             </mat-card-title>
             <mat-card-subtitle>
                 <div *ngIf="this.user.id != this.auth.user.id">
                     {{ this.user.name }}
                 </div>
-                <mat-form-field *ngIf="this.user.id == this.auth.user.id">
-                    <input matInput formControlName="name" value="this.user.name">
-                </mat-form-field>
-                <button mat-button (click)="changeName()">
-                    Change
-                </button>
+                <form [formGroup]="form_name" *ngIf="this.user.id == this.auth.user.id"> 
+                    <mat-form-field >
+                        <input matInput formControlName="name" value="{{this.user.name}}">
+                    </mat-form-field>
+                    <button mat-button (click)="changeName()">
+                        Change
+                    </button>
+                </form>
             </mat-card-subtitle>
             <mat-card-content>
                 Phone: {{ this.user.phone }}
@@ -41,7 +45,7 @@
                 Email: {{ this.user.email }}
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button *ngIf="this.user.id == this.auth.user.id">
+                <button mat-button *ngIf="this.user.id == this.auth.user.id" routerLink="/contacts">
                     <mat-icon>
                         people
                     </mat-icon>

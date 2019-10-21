@@ -1,0 +1,11 @@
+.contacts_user_online{
+    font-size: 10px;
+}
+
+.contacts_user_offline{
+    font-size: 10px;
+}
+.contacts_user{
+    border: 2px;
+    border-style: solid;
+}
