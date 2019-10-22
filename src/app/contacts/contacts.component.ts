@@ -67,10 +67,6 @@ export class ContactsComponent implements OnInit {
   }
 
   isUserOnline(id : number) : boolean{
-    if(id%2 == 0){
-      return true;
-    } else {
-      return false;
-    }
+    return this.userService.isUserOnline(id);
   }
 }
